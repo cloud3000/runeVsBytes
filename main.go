@@ -116,10 +116,10 @@ func evalRune(str string) {
 
 }
 
+//************** evalBytehex **************"
 // evalBytehex is like evalByte, except it show the hex values.
 // ALSO: We will not show all index positions, rather focus on the order of bytes.
 func evalBytehex(str string) {
-	fmt.Println("************** evalBytehex **************")
 	fmt.Println(str)
 	sentence := []byte(str)
 	counter := 0
@@ -127,16 +127,15 @@ func evalBytehex(str string) {
 		counter++
 		fmt.Printf("%x ", letter)
 	}
-	fmt.Println(" ")
+	fmt.Printf(" > Chars: %v Bytes: %v\n", counter, len(sentence))
 
-	fmt.Printf("        Counter value: %v\n", counter)
-	fmt.Printf("Length of sentence is: %v\n", len(sentence))
 }
 
+// ************** evalRunehex **************
 // evalRunehex is like evalRune, except it show the hex values.
 // ALSO: We will not show all index positions, rather focus on the order of runes.
 func evalRunehex(str string) {
-	fmt.Println("************** evalRunehex **************")
+
 	fmt.Println(str)
 	sentence := []rune(str)
 	counter := 0
@@ -144,18 +143,16 @@ func evalRunehex(str string) {
 		counter++
 		fmt.Printf("%x ", letter)
 	}
-	fmt.Println(" ")
 
-	fmt.Printf("        Counter value: %v\n", counter)
-	fmt.Printf("Length of sentence is: %v\n", len(sentence))
+	fmt.Printf(" > Chars: %v Bytes: %v\n", counter, len(sentence))
+
 }
 
+//************** R E V S T R 1 **************"
 // revstr1 Is the wrong way to reverse a string.
 // It will work correctly within the ASCII character range.
 // IT WILL FAIL using UTF8 characters that require more than 1 byte per characters.
 func revstr1(str string) string {
-	fmt.Println("************** R E V S T R 1 **************")
-	fmt.Println(str)
 	theString := []byte(str)
 	for i, j := 0, len(theString); i < j; i++ {
 		j--
@@ -164,10 +161,9 @@ func revstr1(str string) string {
 	return string(theString)
 }
 
+//************** R E V S T R 2 **************")
 // revstr2 is the correct way to reverse a string, using a slice of runes.
 func revstr2(str string) string {
-	fmt.Println("************** R E V S T R 2 **************")
-	fmt.Println(str)
 	theString := []rune(str)
 	for i, j := 0, len(theString); i < j; i++ {
 		j--
@@ -180,8 +176,6 @@ func revstr2(str string) string {
 // Really, WHY USE A SLICE OF RUNES? Lets see..... uncomment and try it!
 /*
 func revstr3(str string) string {
-	fmt.Println("************** R E V S T R 2 **************")
-	fmt.Println(str)
 	theString := str
 	for i, j := 0, len(theString); i < j; i++ {
 		j--
